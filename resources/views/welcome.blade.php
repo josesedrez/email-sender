@@ -14,7 +14,7 @@
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
+                color: black;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -78,17 +78,34 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+                <form class="form" enctype="multipart/form-data" action="/send" method="POST">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label>Os e-mails serão enviados através do gmail "chapavamosdeboas@gmail.com"</label><br>
+                        <br><br>
+                        <label>Assunto</label><br>
+                        <input type="text" name="subject">
+                        <br><br>
+                        <label for="spreadsheet">Planilha</label><br>
+                        <input class="form-control" required type="file" name="spreadsheet" accept=".xlsx">
+                        <br><br>
+                        <label for="message">Mensagem (adicione "{nome}" onde quiser o nome da pessoa)</label><br>
+                        <textarea name="message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Enviar</button>
+                    <br>
+                </form>
+{{--                <div class="title m-b-md">--}}
+{{--                    Laravel--}}
+{{--                </div>--}}
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+{{--                <div class="links">--}}
+{{--                    <a href="https://laravel.com/docs">Documentation</a>--}}
+{{--                    <a href="https://laracasts.com">Laracasts</a>--}}
+{{--                    <a href="https://laravel-news.com">News</a>--}}
+{{--                    <a href="https://forge.laravel.com">Forge</a>--}}
+{{--                    <a href="https://github.com/laravel/laravel">GitHub</a>--}}
+{{--                </div>--}}
             </div>
         </div>
     </body>
