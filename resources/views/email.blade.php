@@ -1,3 +1,1 @@
-<div>
-    {{$currentMessage}}
-</div>
+{{$currentMessage}}

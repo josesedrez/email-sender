@@ -36,6 +36,6 @@ class Send extends Mailable
     {
         return $this->from('chapavamosdeboas@gmail.com')
             ->subject($this->subject)
-            ->view('email');
+            ->text('email');
     }
 }
