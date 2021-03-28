@@ -32,7 +32,7 @@ class SendController extends Controller
 
                 Mail::to($toEmail)->send(new Send($subject, $currentMessage));
 
-                sleep(2);
+                sleep(5);
             }
         } else {
             echo SimpleXLSX::parseError();
