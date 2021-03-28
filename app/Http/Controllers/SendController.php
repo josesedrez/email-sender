@@ -31,6 +31,8 @@ class SendController extends Controller
                 $currentMessage = preg_replace('/{nome}/', $name, $message);
 
                 Mail::to($toEmail)->send(new Send($subject, $currentMessage));
+
+                sleep(2);
             }
         } else {
             echo SimpleXLSX::parseError();
