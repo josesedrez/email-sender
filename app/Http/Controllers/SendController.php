@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendEmail;
 use App\Mail\Send;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -30,9 +31,8 @@ class SendController extends Controller
 
                 $currentMessage = preg_replace('/{nome}/', $name, $message);
 
-                Mail::to($toEmail)->send(new Send($subject, $currentMessage));
+                SendEmail::dispatch($toEmail, $subject, $currentMessage);
 
-                sleep(5);
             }
         } else {
             echo SimpleXLSX::parseError();
